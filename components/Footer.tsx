@@ -13,7 +13,7 @@ export default function Footer() {
             alt="NOX"
             width={60}
             height={60}
-            className="h-8 w-auto opacity-50"
+            className="h-16 w-auto"
           />
           <p
             className="font-mono text-xs"
