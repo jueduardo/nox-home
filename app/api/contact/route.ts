@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     from: "Formulário NOX <contato@noxoffsec.com>",
-    to: "contato@noxoffsec.com",
+    to: ["contato@noxoffsec.com", "julio.eduardo@protonmail.com"],
     replyTo: email,
     subject: `[NOX] Nova mensagem de ${nome} — ${servicoLabel}`,
     text: [

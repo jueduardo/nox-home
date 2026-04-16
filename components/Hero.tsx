@@ -82,7 +82,7 @@ export default function Hero() {
                 letterSpacing: "0.12em",
               }}
             >
-              Solicitar Assessment
+              Quero me proteger
             </a>
             <a
               href="#servicos"
