@@ -1,5 +1,6 @@
 const pentestTags = ["Web Apps", "API", "Infra", "Cloud", "Mobile"];
 const appsecTags = ["Shift Left", "Code Review", "SAST / DAST", "DevSecOps"];
+const consultoriaTags = ["Risk Assessment", "Políticas", "Treinamento", "Conformidade"];
 
 function Tag({ label }: { label: string }) {
   return (
@@ -67,10 +68,79 @@ export default function Services() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Card 1 — Pentest */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Card 1 — Consultoria */}
           <div
             className="service-card reveal-d1 p-8 flex flex-col gap-6"
+            style={{ background: "var(--surface)" }}
+          >
+            <div className="flex items-start gap-4">
+              <IconBox>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} width={20} height={20}>
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </IconBox>
+              <div className="flex-1 min-w-0">
+                <h3
+                  className="font-bold text-xl mb-3"
+                  style={{ color: "var(--heading)" }}
+                >
+                  Consultoria em Segurança
+                </h3>
+                <p
+                  className="text-sm leading-relaxed font-light"
+                  style={{ color: "var(--text)" }}
+                >
+                  Avaliação de maturidade, definição de políticas e
+                  treinamento de equipes. Construímos uma cultura de
+                  segurança adaptada ao contexto e ao risco da sua empresa.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {consultoriaTags.map((t) => (
+                <Tag key={t} label={t} />
+              ))}
+            </div>
+          </div>
+
+          {/* Card 2 — AppSec */}
+          <div
+            className="service-card reveal-d2 p-8 flex flex-col gap-6"
+            style={{ background: "var(--surface)" }}
+          >
+            <div className="flex items-start gap-4">
+              <IconBox>◆</IconBox>
+              <div className="flex-1 min-w-0">
+                <h3
+                  className="font-bold text-xl mb-3"
+                  style={{ color: "var(--heading)" }}
+                >
+                  Segurança no Desenvolvimento
+                </h3>
+                <p
+                  className="text-sm leading-relaxed font-light"
+                  style={{ color: "var(--text)" }}
+                >
+                  Segurança integrada ao ciclo de desenvolvimento. Ajudamos a
+                  construir software seguro desde o design, com revisão de
+                  código, SAST/DAST e práticas DevSecOps.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {appsecTags.map((t) => (
+                <Tag key={t} label={t} />
+              ))}
+            </div>
+          </div>
+
+          {/* Card 3 — Pentest */}
+          <div
+            className="service-card reveal-d3 p-8 flex flex-col gap-6 md:col-span-2 lg:col-span-1"
             style={{ background: "var(--surface)" }}
           >
             <div className="flex items-start gap-4">
@@ -103,37 +173,6 @@ export default function Services() {
             </div>
             <div className="flex flex-wrap gap-2">
               {pentestTags.map((t) => (
-                <Tag key={t} label={t} />
-              ))}
-            </div>
-          </div>
-
-          {/* Card 2 — AppSec */}
-          <div
-            className="service-card reveal-d2 p-8 flex flex-col gap-6"
-            style={{ background: "var(--surface)" }}
-          >
-            <div className="flex items-start gap-4">
-              <IconBox>◆</IconBox>
-              <div className="flex-1 min-w-0">
-                <h3
-                  className="font-bold text-xl mb-3"
-                  style={{ color: "var(--heading)" }}
-                >
-                  AppSec — Shift Left
-                </h3>
-                <p
-                  className="text-sm leading-relaxed font-light"
-                  style={{ color: "var(--text)" }}
-                >
-                  Segurança integrada ao ciclo de desenvolvimento. Ajudamos a
-                  construir software seguro desde o design, com revisão de
-                  código, SAST/DAST e práticas DevSecOps.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {appsecTags.map((t) => (
                 <Tag key={t} label={t} />
               ))}
             </div>
