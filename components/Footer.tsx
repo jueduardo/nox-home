@@ -21,27 +21,6 @@ export default function Footer() {
           >
             © 2026 NOX OFFSEC — Todos os direitos reservados.
           </p>
-
-          {/* <div className="flex items-center gap-6">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs hover:opacity-100 opacity-40 transition-opacity duration-200"
-              style={{ color: "var(--heading)" }}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs hover:opacity-100 opacity-40 transition-opacity duration-200"
-              style={{ color: "var(--heading)" }}
-            >
-              GitHub
-            </a>
-          </div> */}
         </div>
       </div>
     </footer>

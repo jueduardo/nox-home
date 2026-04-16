@@ -93,7 +93,7 @@ export default function Contact() {
               className="font-bold mb-6"
               style={{
                 color: "var(--heading)",
-                fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
                 lineHeight: 1.15,
               }}
             >
@@ -105,22 +105,23 @@ export default function Contact() {
               className="text-sm leading-relaxed font-light mb-10"
               style={{ color: "var(--text)" }}
             >
-              Preencha o formulário e nossa equipe entrará em contato para
-              entender suas necessidades e propor a melhor abordagem.
+              Sua aplicação está realmente segura? Nossa equipe identifica suas
+              exposições antes que alguém as explore — e entrega um plano de
+              remediação claro.
             </p>
 
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <span
                   className="font-mono text-sm"
-                  style={{ color: "var(--heading)" }}
+                  style={{ color: "var(--muted)" }}
                 >
                   →
                 </span>
                 <a
                   href="mailto:contato@noxoffsec.com"
-                  className="font-mono text-sm hover:opacity-100 opacity-70"
-                  style={{ color: "var(--heading)" }}
+                  className="font-mono text-sm transition-colors duration-150 hover:opacity-100"
+                  style={{ color: "var(--heading)", textDecoration: "underline", textUnderlineOffset: "3px", textDecorationColor: "rgba(255,255,255,0.25)" }}
                 >
                   contato@noxoffsec.com
                 </a>
@@ -128,13 +129,13 @@ export default function Contact() {
               <div className="flex items-center gap-3">
                 <span
                   className="font-mono text-sm"
-                  style={{ color: "var(--heading)" }}
+                  style={{ color: "var(--muted)" }}
                 >
                   →
                 </span>
                 <span
-                  className="font-mono text-sm opacity-70"
-                  style={{ color: "var(--heading)" }}
+                  className="font-mono text-sm"
+                  style={{ color: "var(--text)" }}
                 >
                   São Paulo, Brasil
                 </span>
@@ -144,140 +145,140 @@ export default function Contact() {
 
           {/* Right — Form */}
           <div className="reveal-d1">
-          {success ? (
-            <div className="flex flex-col gap-4 py-8">
-              <span
-                className="font-mono text-xs tracking-widest"
-                style={{ color: "var(--muted)", letterSpacing: "0.12em" }}
+            {success ? (
+              <div className="flex flex-col gap-4 py-8">
+                <span
+                  className="font-mono text-xs tracking-widest"
+                  style={{ color: "var(--muted)", letterSpacing: "0.12em" }}
+                >
+                  {"// "} Mensagem enviada
+                </span>
+                <p
+                  className="text-sm leading-relaxed font-light"
+                  style={{ color: "var(--text)" }}
+                >
+                  Recebemos sua mensagem. Nossa equipe entrará em contato em
+                  breve.
+                </p>
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="font-mono text-xs uppercase tracking-widest self-start opacity-60 hover:opacity-100 transition-opacity"
+                  style={{ color: "var(--heading)", letterSpacing: "0.12em" }}
+                >
+                  ← Enviar outra mensagem
+                </button>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-5"
+                noValidate
               >
-                {"// "} Mensagem enviada
-              </span>
-              <p
-                className="text-sm leading-relaxed font-light"
-                style={{ color: "var(--text)" }}
-              >
-                Recebemos sua mensagem. Nossa equipe entrará em contato em
-                breve.
-              </p>
-              <button
-                onClick={() => setSuccess(false)}
-                className="font-mono text-xs uppercase tracking-widest self-start opacity-60 hover:opacity-100 transition-opacity"
-                style={{ color: "var(--heading)", letterSpacing: "0.12em" }}
-              >
-                ← Enviar outra mensagem
-              </button>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-5"
-              noValidate
-            >
-              <Field label="Nome">
-                <input
-                  type="text"
-                  placeholder="Seu nome"
-                  required
-                  value={fields.nome}
-                  onChange={set("nome")}
-                  className="form-input"
-                  style={{
-                    ...inputBase,
-                    borderColor: borderColor("nome"),
-                  }}
-                  onFocus={() => setFocused("nome")}
-                  onBlur={() => setFocused(null)}
-                />
-              </Field>
-
-              <Field label="E-mail">
-                <input
-                  type="email"
-                  placeholder="email@empresa.com"
-                  required
-                  value={fields.email}
-                  onChange={set("email")}
-                  className="form-input"
-                  style={{
-                    ...inputBase,
-                    borderColor: borderColor("email"),
-                  }}
-                  onFocus={() => setFocused("email")}
-                  onBlur={() => setFocused(null)}
-                />
-              </Field>
-
-              <Field label="Serviço de Interesse">
-                <div className="relative">
-                  <select
+                <Field label="Nome">
+                  <input
+                    type="text"
+                    placeholder="Seu nome"
                     required
-                    value={fields.servico}
-                    onChange={set("servico")}
-                    className="form-input appearance-none w-full cursor-pointer"
+                    value={fields.nome}
+                    onChange={set("nome")}
+                    className="form-input"
                     style={{
                       ...inputBase,
-                      borderColor: borderColor("servico"),
-                      paddingRight: "2.5rem",
+                      borderColor: borderColor("nome"),
                     }}
-                    onFocus={() => setFocused("servico")}
+                    onFocus={() => setFocused("nome")}
                     onBlur={() => setFocused(null)}
-                  >
-                    <option value="" disabled style={{ color: "#555" }}>
-                      Selecione um serviço
-                    </option>
-                    <option value="pentest">Pentest</option>
-                    <option value="appsec">AppSec — Shift Left</option>
-                    <option value="consultoria">Consultoria Geral</option>
-                  </select>
-                  <span
-                    className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    ▾
-                  </span>
-                </div>
-              </Field>
+                  />
+                </Field>
 
-              <Field label="Mensagem">
-                <textarea
-                  placeholder="Descreva brevemente sua necessidade..."
-                  required
-                  rows={4}
-                  value={fields.mensagem}
-                  onChange={set("mensagem")}
-                  className="form-input resize-none"
+                <Field label="E-mail">
+                  <input
+                    type="email"
+                    placeholder="email@empresa.com"
+                    required
+                    value={fields.email}
+                    onChange={set("email")}
+                    className="form-input"
+                    style={{
+                      ...inputBase,
+                      borderColor: borderColor("email"),
+                    }}
+                    onFocus={() => setFocused("email")}
+                    onBlur={() => setFocused(null)}
+                  />
+                </Field>
+
+                <Field label="Serviço de Interesse">
+                  <div className="relative">
+                    <select
+                      required
+                      value={fields.servico}
+                      onChange={set("servico")}
+                      className="form-input appearance-none w-full cursor-pointer"
+                      style={{
+                        ...inputBase,
+                        borderColor: borderColor("servico"),
+                        paddingRight: "2.5rem",
+                      }}
+                      onFocus={() => setFocused("servico")}
+                      onBlur={() => setFocused(null)}
+                    >
+                      <option value="" disabled style={{ color: "#555" }}>
+                        Selecione um serviço
+                      </option>
+                      <option value="pentest">Pentest</option>
+                      <option value="appsec">AppSec — Shift Left</option>
+                      <option value="consultoria">Consultoria Geral</option>
+                    </select>
+                    <span
+                      className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs"
+                      style={{ color: "var(--muted)" }}
+                    >
+                      ▾
+                    </span>
+                  </div>
+                </Field>
+
+                <Field label="Mensagem">
+                  <textarea
+                    placeholder="Descreva brevemente sua necessidade..."
+                    required
+                    rows={4}
+                    value={fields.mensagem}
+                    onChange={set("mensagem")}
+                    className="form-input resize-none"
+                    style={{
+                      ...inputBase,
+                      borderColor: borderColor("mensagem"),
+                    }}
+                    onFocus={() => setFocused("mensagem")}
+                    onBlur={() => setFocused(null)}
+                  />
+                </Field>
+
+                {error && (
+                  <p
+                    className="font-mono text-xs"
+                    style={{ color: "#f87171" }}
+                  >
+                    {error}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="font-mono text-xs font-bold uppercase tracking-widest py-3.5 w-full transition-all duration-200 cursor-pointer hover:opacity-85 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                   style={{
-                    ...inputBase,
-                    borderColor: borderColor("mensagem"),
+                    background: "var(--heading)",
+                    color: "#000000",
+                    letterSpacing: "0.12em",
                   }}
-                  onFocus={() => setFocused("mensagem")}
-                  onBlur={() => setFocused(null)}
-                />
-              </Field>
-
-              {error && (
-                <p
-                  className="font-mono text-xs"
-                  style={{ color: "#f87171" }}
                 >
-                  {error}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="font-mono text-xs font-bold uppercase tracking-widest py-3.5 w-full transition-all duration-200 cursor-pointer hover:opacity-85 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
-                style={{
-                  background: "var(--heading)",
-                  color: "#000000",
-                  letterSpacing: "0.12em",
-                }}
-              >
-                {loading ? "Enviando..." : "Enviar Mensagem →"}
-              </button>
-            </form>
-          )}
+                  {loading ? "Enviando..." : "Enviar Mensagem →"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
