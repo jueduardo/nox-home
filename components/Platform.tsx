@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useState } from "react";
+import Image from "next/image";
 
 /* ─── data ─── */
 const statCards: readonly { label: string; target: number; duration: number; color: string; icon: string; decimals?: number }[] = [
@@ -202,7 +203,15 @@ export default function Platform() {
           <div className="plat-dash-body">
             {/* sidebar */}
             <nav className="plat-sidebar">
-              <div className="plat-sidebar-logo">NOX</div>
+              <div className="plat-sidebar-logo">
+                <Image
+                  src="/images/nox-logo.png"
+                  alt="NOX"
+                  width={80}
+                  height={80}
+                  className="plat-sidebar-logo-img"
+                />
+              </div>
               <div className="plat-sidebar-org">// NOX</div>
               <ul className="plat-nav">
                 <li className="plat-nav-item active">

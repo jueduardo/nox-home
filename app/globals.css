@@ -316,11 +316,14 @@ body::after {
   position: relative;
 }
 .plat-sidebar-logo {
-  padding: 0 20px;
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: 4px;
+  padding: 0 12px;
   margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+}
+.plat-sidebar-logo-img {
+  height: 36px;
+  width: auto;
 }
 .plat-sidebar-org {
   padding: 0 20px;
