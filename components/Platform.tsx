@@ -173,13 +173,13 @@ export default function Platform() {
       <div className="plat-header">
         <div className="plat-tag">Plataforma</div>
         <h2 className="plat-title">
-          Gerencie seus pentests com a{" "}
+          Acompanhe em tempo real a segurança da sua empresa com a{" "}
           <span className="plat-highlight">NOX Platform</span>
         </h2>
         <p className="plat-desc">
-          Acompanhe vulnerabilidades, progresso de remediação e severidades em
-          tempo real. Tudo em um único dashboard construído para equipes de
-          segurança.
+          Cada cliente NOX tem acesso ao seu próprio portal. Vulnerabilidades
+          encontradas, progresso de remediação e severidades tudo visível em
+          tempo real enquanto trabalhamos.
         </p>
       </div>
 
@@ -203,7 +203,7 @@ export default function Platform() {
             {/* sidebar */}
             <nav className="plat-sidebar">
               <div className="plat-sidebar-logo">NOX</div>
-              <div className="plat-sidebar-org">// Kirvano</div>
+              <div className="plat-sidebar-org">// NOX</div>
               <ul className="plat-nav">
                 <li className="plat-nav-item active">
                   <NavIcon type="dashboard" /> Dashboard
@@ -221,7 +221,7 @@ export default function Platform() {
             <div className="plat-main">
               <div className="plat-scanline" />
 
-              <div className="plat-greeting">Olá, Ana Camila</div>
+              <div className="plat-greeting">Olá, Jeff</div>
               <div className="plat-subtitle font-mono">// Portal NOX OFFSEC</div>
 
               {/* stat cards */}
@@ -346,10 +346,7 @@ export default function Platform() {
       {/* ── cta ── */}
       <div className="plat-cta">
         <a href="#contato" className="plat-cta-btn primary">
-          Solicitar Acesso
-        </a>
-        <a href="#" className="plat-cta-btn secondary">
-          Ver Demo →
+          Quero me proteger
         </a>
       </div>
     </section>
