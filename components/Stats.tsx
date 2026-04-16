@@ -15,16 +15,10 @@ export default function Stats() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4">
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center py-10 px-6 text-center"
-              style={{
-                borderRight:
-                  i < stats.length - 1
-                    ? "1px solid var(--border)"
-                    : undefined,
-              }}
+              className="stat-item reveal flex flex-col items-center justify-center py-10 px-6 text-center"
             >
               <span
                 className="font-mono font-bold mb-2 leading-none"

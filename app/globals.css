@@ -322,7 +322,7 @@ body::after {
   align-items: center;
 }
 .plat-sidebar-logo-img {
-  height: 36px;
+  height: 60px;
   width: auto;
 }
 .plat-sidebar-org {
@@ -342,17 +342,19 @@ body::after {
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  transition: all 0.2s;
-  border-left: 2px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 .plat-nav-item.active {
   color: var(--plat-text-primary);
-  background: #ffffff06;
-  border-left-color: var(--plat-accent-red);
+  background: rgba(255, 45, 85, 0.07);
+}
+.plat-nav-item.active .plat-nav-icon {
+  opacity: 1;
+  color: var(--plat-accent-red);
 }
 .plat-nav-item:hover {
   color: var(--plat-text-primary);
-  background: #ffffff04;
+  background: #ffffff05;
 }
 .plat-nav-icon { width: 16px; height: 16px; opacity: 0.6; }
 
@@ -736,4 +738,67 @@ body::after {
 a,
 button {
   transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Focus-visible — keyboard navigation */
+:focus-visible {
+  outline: 2px solid rgba(245, 245, 245, 0.6);
+  outline-offset: 3px;
+}
+
+/* ─ scroll reveal ─ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 22%;
+  }
+  .reveal-d1 {
+    animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 27%;
+  }
+  .reveal-d2 {
+    animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 32%;
+  }
+  .reveal-d3 {
+    animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 15% entry 37%;
+  }
+}
+
+/* ─ reduced motion ─ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─ stats grid items ─ */
+.stat-item {
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child {
+  border-right: none;
+}
+@media (max-width: 767px) {
+  .stat-item:nth-child(even) {
+    border-right: none;
+  }
+  .stat-item:nth-child(-n+2) {
+    border-bottom: 1px solid var(--border);
+  }
 }

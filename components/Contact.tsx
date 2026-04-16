@@ -82,7 +82,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
           {/* Left — Info */}
-          <div>
+          <div className="reveal">
             <span
               className="font-mono text-xs tracking-widest block mb-4"
               style={{ color: "var(--muted)", letterSpacing: "0.12em" }}
@@ -143,6 +143,7 @@ export default function Contact() {
           </div>
 
           {/* Right — Form */}
+          <div className="reveal-d1">
           {success ? (
             <div className="flex flex-col gap-4 py-8">
               <span
@@ -277,6 +278,7 @@ export default function Contact() {
               </button>
             </form>
           )}
+          </div>
         </div>
       </div>
     </section>

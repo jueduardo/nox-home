@@ -40,7 +40,7 @@ export default function Services() {
     <section id="servicos" className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Section header */}
-        <div className="mb-14 max-w-2xl">
+        <div className="reveal mb-14 max-w-2xl">
           <span
             className="font-mono text-xs tracking-widest block mb-4"
             style={{ color: "var(--muted)", letterSpacing: "0.12em" }}
@@ -70,11 +70,20 @@ export default function Services() {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Card 1 — Pentest */}
           <div
-            className="service-card p-8 flex flex-col gap-6"
+            className="service-card reveal-d1 p-8 flex flex-col gap-6"
             style={{ background: "var(--surface)" }}
           >
             <div className="flex items-start gap-4">
-              <IconBox>⚡</IconBox>
+              <IconBox>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} width={20} height={20}>
+                  <circle cx="12" cy="12" r="9" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="3" x2="12" y2="1" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="3" y1="12" x2="1" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                </svg>
+              </IconBox>
               <div className="flex-1 min-w-0">
                 <h3
                   className="font-bold text-xl mb-3"
@@ -101,7 +110,7 @@ export default function Services() {
 
           {/* Card 2 — AppSec */}
           <div
-            className="service-card p-8 flex flex-col gap-6"
+            className="service-card reveal-d2 p-8 flex flex-col gap-6"
             style={{ background: "var(--surface)" }}
           >
             <div className="flex items-start gap-4">

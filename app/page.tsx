@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
@@ -14,7 +15,9 @@ export default function Home() {
         <Hero />
         <Stats />
         <Services />
-        <Platform />
+        <Suspense>
+          <Platform />
+        </Suspense>
         <Contact />
       </main>
       <Footer />

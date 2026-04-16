@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
 /* ─── data ─── */
@@ -25,9 +26,9 @@ const activities = [
 ] as const;
 
 const features = [
-  { icon: "🛡️", title: "Tracking em Tempo Real", desc: "Acompanhe cada vulnerabilidade desde a descoberta até a remediação com status ao vivo e notificações." },
-  { icon: "📊", title: "Relatórios Detalhados", desc: "Gere relatórios executivos e técnicos com classificação CVSS, evidências e recomendações de correção." },
-  { icon: "🔔", title: "Alertas Inteligentes", desc: "Receba notificações quando vulnerabilidades críticas são encontradas ou quando prazos de remediação estão próximos." },
+  { icon: "shield", title: "Tracking em Tempo Real", desc: "Acompanhe cada vulnerabilidade desde a descoberta até a remediação com status ao vivo e notificações." },
+  { icon: "chart", title: "Relatórios Detalhados", desc: "Gere relatórios executivos e técnicos com classificação CVSS, evidências e recomendações de correção." },
+  { icon: "bell", title: "Alertas Inteligentes", desc: "Receba notificações quando vulnerabilidades críticas são encontradas ou quando prazos de remediação estão próximos." },
 ] as const;
 
 /* ─── icons (inline SVGs) ─── */
@@ -42,6 +43,20 @@ function StatIcon({ type }: { type: string }) {
       return <svg {...props}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>;
     case "warn":
       return <svg {...props}><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>;
+    default:
+      return null;
+  }
+}
+
+function FeatureIcon({ type }: { type: string }) {
+  const props = { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.5, width: 20, height: 20 };
+  switch (type) {
+    case "shield":
+      return <svg {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>;
+    case "chart":
+      return <svg {...props}><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>;
+    case "bell":
+      return <svg {...props}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>;
     default:
       return null;
   }
@@ -83,6 +98,10 @@ function animateCounter(
 
 /* ─── component ─── */
 export default function Platform() {
+  const params  = useSearchParams();
+  const person  = params.get("n") ?? "Julio";
+  const company = params.get("e") ?? "NOX";
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const progressFillRef = useRef<HTMLDivElement>(null);
@@ -172,7 +191,6 @@ export default function Platform() {
 
       {/* ── header ── */}
       <div className="plat-header">
-        <div className="plat-tag">Plataforma</div>
         <h2 className="plat-title">
           Acompanhe em tempo real a segurança da sua empresa com a{" "}
           <span className="plat-highlight">NOX Platform</span>
@@ -207,12 +225,12 @@ export default function Platform() {
                 <Image
                   src="/images/nox-logo.png"
                   alt="NOX"
-                  width={80}
-                  height={80}
+                  width={120}
+                  height={120}
                   className="plat-sidebar-logo-img"
                 />
               </div>
-              <div className="plat-sidebar-org">// NOX</div>
+              <div className="plat-sidebar-org">// {company}</div>
               <ul className="plat-nav">
                 <li className="plat-nav-item active">
                   <NavIcon type="dashboard" /> Dashboard
@@ -230,7 +248,7 @@ export default function Platform() {
             <div className="plat-main">
               <div className="plat-scanline" />
 
-              <div className="plat-greeting">Olá, Jeff</div>
+              <div className="plat-greeting">Olá, {person}</div>
               <div className="plat-subtitle font-mono">// Portal NOX OFFSEC</div>
 
               {/* stat cards */}
@@ -345,7 +363,7 @@ export default function Platform() {
             key={f.title}
             style={{ animationDelay: `${0.6 + i * 0.15}s` }}
           >
-            <div className="plat-feature-icon">{f.icon}</div>
+            <div className="plat-feature-icon"><FeatureIcon type={f.icon} /></div>
             <div className="plat-feature-title">{f.title}</div>
             <div className="plat-feature-desc">{f.desc}</div>
           </div>
