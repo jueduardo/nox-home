@@ -86,9 +86,8 @@ export default function Hero() {
             </a>
             <a
               href="#servicos"
-              className="font-mono text-xs uppercase tracking-widest px-6 py-3 inline-block transition-all duration-200 hover:bg-white hover:text-black"
+              className="font-mono text-xs uppercase tracking-widest px-6 py-3 inline-block transition-all duration-200 text-foreground hover:bg-white hover:text-black"
               style={{
-                color: "var(--heading)",
                 border: "1px solid rgba(255,255,255,0.25)",
                 letterSpacing: "0.12em",
               }}

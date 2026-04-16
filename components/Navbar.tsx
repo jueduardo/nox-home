@@ -59,9 +59,8 @@ export default function Navbar() {
           {/* CTA Button */}
           <a
             href="#contato"
-            className="font-mono text-xs uppercase tracking-widest px-4 py-2 transition-all duration-200 hover:bg-white hover:text-black"
+            className="font-mono text-xs uppercase tracking-widest px-4 py-2 transition-all duration-200 text-foreground hover:bg-white hover:text-black"
             style={{
-              color: "var(--heading)",
               border: "1px solid rgba(255,255,255,0.4)",
               letterSpacing: "0.12em",
             }}

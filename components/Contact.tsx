@@ -266,7 +266,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="font-mono text-xs font-bold uppercase tracking-widest py-3.5 w-full transition-all duration-200 hover:opacity-85 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
+                className="font-mono text-xs font-bold uppercase tracking-widest py-3.5 w-full transition-all duration-200 cursor-pointer hover:opacity-85 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100"
                 style={{
                   background: "var(--heading)",
                   color: "#000000",
